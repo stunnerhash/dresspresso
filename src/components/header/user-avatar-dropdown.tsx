@@ -97,19 +97,19 @@ export default async function UserAvatar() {
           </DropdownMenuSubTrigger>
           <DropdownMenuPortal>
             <DropdownMenuSubContent>
-              <Link href="mailto:utyadav07860@gmail.com" target="_blank">
+              <Link href="mailto:utyadav07860@gmail.com">
                 <DropdownMenuItem>
                   <Mail className="mr-2 h-4 w-4" />
                   <span>Email</span>
                 </DropdownMenuItem>
               </Link>
-              <Link href="https://linkedin.com/in/stunnerhash" target="_blank">
+              <Link href="https://linkedin.com/in/stunnerhash">
                 <DropdownMenuItem>
                   <MessageSquare className="mr-2 h-4 w-4" />
                   <span>Linkedin</span>
                 </DropdownMenuItem>
               </Link>
-              <Link href="https://twitter.com/stunnerhash" target="_blank">
+              <Link href="https://twitter.com/stunnerhash">
                 <DropdownMenuItem>
                   <MessageSquare className="mr-2 h-4 w-4" />
                   <span>Twitter</span>
@@ -119,7 +119,7 @@ export default async function UserAvatar() {
           </DropdownMenuPortal>
         </DropdownMenuSub>
         <DropdownMenuSeparator />
-        <Link href="api/auth/signout?callbackUrl=/" target="_blank">
+        <Link href="api/auth/signout?callbackUrl=/">
           <DropdownMenuItem>
             <LogOut className="mr-2 h-4 w-4" />
             <span>Logout</span>
