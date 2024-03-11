@@ -1,4 +1,7 @@
+import { FileInput } from "@/components/ui/file-input";
+import UploadPicture from "@/components/upload-picture/upload-picture";
 import prisma from "@/db";
+import { Plus, PlusCircle, PlusCircleIcon, Upload } from "lucide-react";
 
 // async function getUser(){
 //   try{

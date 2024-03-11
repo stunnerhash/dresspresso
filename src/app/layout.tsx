@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Providers } from "./providers";
 import Header from "@/components/header/header";
+import UploadPicture from "@/components/upload-picture/upload-picture";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           {children}
+          <UploadPicture />
         </Providers>
       </body>
     </html>
