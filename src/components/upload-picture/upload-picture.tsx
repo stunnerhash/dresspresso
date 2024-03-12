@@ -3,6 +3,7 @@ import { FileInput } from "@/components/ui/file-input";
 import { Plus } from "lucide-react";
 import { ChangeEvent, useRef, useState } from "react";
 import UploadDialog from "./upload-dialog";
+import { compressImage } from "@/lib/compressImage";
 
 export default function UploadPicture() {
   const input = useRef<HTMLInputElement>(null);
@@ -27,7 +28,11 @@ export default function UploadPicture() {
       return newPictures;
     });
   }
+
   function handleUpload() {
+    selectedPictures.map((file, index) => {
+      compressImage(file, (compressedFile) => {});
+    });
     setShowDialog(false);
   }
   return (
@@ -38,6 +43,7 @@ export default function UploadPicture() {
           className="hidden"
           onChange={handleInput}
           ref={input}
+          accept="image/jpeg, image/png, image/webp, image/heic, image/heif"
         />
         <Plus
           className="h-10 w-10 rounded-full bg-muted p-2 transition-all hover:scale-110 active:scale-90 "

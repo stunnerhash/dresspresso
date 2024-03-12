@@ -7,16 +7,13 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import * as z from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Image from "next/image";
 import { X } from "lucide-react";
+import { Gallary } from "../gallary/gallary";
+import * as z from "zod";
+// import { useForm } from "react-hook-form";
+// import { zodResolver } from "@hookform/resolvers/zod";
 
-const MAX_FILE_SIZE = 5000000;
+const MAX_FILE_SIZE = 10000000;
 const ACCEPTED_IMAGE_TYPES = [
   "image/jpeg",
   "image/jpg",
@@ -29,7 +26,7 @@ const imageSchema = z.object({
     .any()
     .refine(
       (files) => files?.[0]?.size <= MAX_FILE_SIZE,
-      `Max image size is 5MB.`,
+      `Max image size is 10MB.`,
     )
     .refine(
       (files) => ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
@@ -54,40 +51,18 @@ export default function UploadDialog({
 }) {
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="select-none">
         <DialogHeader>
           <DialogTitle>Selected Pictures</DialogTitle>
           <DialogDescription>
             Are you sure you want to upload these pictures?
           </DialogDescription>
         </DialogHeader>
-        <ul className="flex max-h-96 flex-col flex-wrap items-start justify-start overflow-y-auto">
-          {selectedPictures.slice(0, 10)?.map((item: File, index) => {
-            return (
-              <div
-                key={index}
-                className="group relative w-1/4 p-1"
-                onClick={() => handleDelete(index)}
-              >
-                <div className="overflow-hidden">
-                  <Image
-                    src={URL.createObjectURL(item)}
-                    className="transition-all duration-300 group-hover:-rotate-3 group-hover:scale-75 group-hover:opacity-50"
-                    width={100}
-                    height={100}
-                    alt=""
-                  />
-                </div>
-                <span
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform 
-                    opacity-0 transition-all group-hover:opacity-100"
-                >
-                  <X />
-                </span>
-              </div>
-            );
-          })}
-        </ul>
+        <Gallary pictures={selectedPictures} onClick={handleDelete}>
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform opacity-0 transition-all group-hover:opacity-100">
+            <X />
+          </span>
+        </Gallary>
         <DialogFooter>
           <Button type="submit" onClick={handleUpload}>
             Upload

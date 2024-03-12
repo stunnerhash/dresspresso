@@ -45,7 +45,7 @@ export default async function UserAvatar() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Avatar className="h-9 w-9 transition-all hover:scale-105 hover:opacity-80 active:scale-90">
+        <Avatar className="h-9 w-9 transition-all  hover:cursor-pointer hover:opacity-80 active:scale-90">
           <AvatarImage
             src={`${userImage}`}
             alt="@shadcn"
