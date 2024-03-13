@@ -17,4 +17,8 @@ export const options: NextAuthOptions = {
       clientSecret:process.env.GOOGLE_SECRET || '',
     }),
   ],
+  pages:{
+    signIn:'auth/signin',
+    signOut:'auth/signout',
+  }
 }

@@ -44,7 +44,7 @@ export default function UploadDialog({
   handleUpload,
 }: {
   open: boolean;
-  selectedPictures: File[];
+  selectedPictures: Blob[];
   handleClose: () => void;
   handleUpload: () => void;
   handleDelete: (a: number) => void;
@@ -59,7 +59,7 @@ export default function UploadDialog({
           </DialogDescription>
         </DialogHeader>
         <Gallary pictures={selectedPictures} onClick={handleDelete}>
-          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform opacity-0 transition-all group-hover:opacity-100">
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-0 transform transition-all group-hover:scale-100 ">
             <X />
           </span>
         </Gallary>

@@ -1,17 +1,17 @@
 
-export function compressImage(file: File, callback: (compressedFile: Blob) => void): void {
-  const maxSizeKB: number = 80;
-  const quality: number = 0.7; // Initial quality
+export function compressImage(file: File, callback: (file: Blob) => void): void {
+  const maxSizeKB = 50;
+  const quality = 0.7; // Initial quality
 
-  const reader: FileReader = new FileReader();
+  const reader = new FileReader();
 
   reader.onload = function (): void {
-      const image: HTMLImageElement = new Image();
+      const image = new Image();
       image.src = reader.result as string;
 
       image.onload = function (): void {
-          const canvas: HTMLCanvasElement = document.createElement('canvas');
-          const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
 
           if (!ctx) {
               console.error('Failed to create canvas context.');
@@ -19,10 +19,10 @@ export function compressImage(file: File, callback: (compressedFile: Blob) => vo
           }
 
           // Calculate new dimensions while maintaining aspect ratio
-          let width: number = image.width;
-          let height: number = image.height;
-          const maxDimension: number = Math.max(width, height);
-          const scaleFactor: number = maxDimension / 1000; // scale factor for target file size
+          let width = image.width;
+          let height = image.height;
+          const maxDimension = Math.max(width, height);
+          const scaleFactor = maxDimension / 1000; // scale factor for target file size
 
           if (maxDimension > 1000) {
               width /= scaleFactor;

@@ -34,7 +34,7 @@ export default async function UserAvatar() {
   if (!session) {
     return (
       <Link href="/api/auth/signin">
-        <Button variant="outline"> Signin / Login </Button>
+        <Button variant="ghost"> Signin / Login </Button>
       </Link>
     );
   }

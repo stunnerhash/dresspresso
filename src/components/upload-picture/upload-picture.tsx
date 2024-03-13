@@ -8,14 +8,21 @@ import { compressImage } from "@/lib/compressImage";
 export default function UploadPicture() {
   const input = useRef<HTMLInputElement>(null);
   const [showDialog, setShowDialog] = useState(false);
-  const [selectedPictures, setSelectedPictures] = useState<File[]>([]);
+  const [selectedPictures, setSelectedPictures] = useState<Blob[]>([]);
   function handleClick() {
     input?.current?.click();
   }
   function handleInput(e: ChangeEvent<HTMLInputElement>) {
     if (input?.current?.files?.length) {
       const files = Array.from(input.current.files);
-      setSelectedPictures(files.map((file) => file));
+      let newSelectedPictures: Blob[] = [];
+      files.map((file, index) => {
+        compressImage(file, (compressedFile) => {
+          newSelectedPictures.push(compressedFile);
+          if (files.length === newSelectedPictures.length)
+            setSelectedPictures(newSelectedPictures);
+        });
+      });
       setShowDialog(true);
     }
   }
@@ -30,9 +37,6 @@ export default function UploadPicture() {
   }
 
   function handleUpload() {
-    selectedPictures.map((file, index) => {
-      compressImage(file, (compressedFile) => {});
-    });
     setShowDialog(false);
   }
   return (
