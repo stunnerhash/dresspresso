@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Providers } from "./providers";
 import Header from "@/components/header/header";
-import UploadPicture from "@/components/upload-picture/upload-picture";
+import UploadPicture from "@/components/upload-pictures/upload-pictures";
 import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 

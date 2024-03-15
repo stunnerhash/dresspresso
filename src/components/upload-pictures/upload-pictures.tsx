@@ -23,6 +23,7 @@ export default function UploadPicture() {
             setSelectedPictures(newSelectedPictures);
         });
       });
+      input.current.value = "";
       setShowDialog(true);
     }
   }
@@ -50,7 +51,7 @@ export default function UploadPicture() {
           accept="image/jpeg, image/png, image/webp, image/heic, image/heif"
         />
         <Plus
-          className="h-10 w-10 rounded-full bg-muted p-2 transition-all hover:scale-110 active:scale-90 "
+          className="h-10 w-10 cursor-pointer rounded-full bg-muted p-2 transition-all hover:scale-110 active:scale-90"
           onClick={handleClick}
         />
       </div>

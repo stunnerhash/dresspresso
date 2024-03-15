@@ -58,11 +58,11 @@ export default function UploadDialog({
             Are you sure you want to upload these pictures?
           </DialogDescription>
         </DialogHeader>
-        <Gallary pictures={selectedPictures} onClick={handleDelete}>
-          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-0 transform transition-all group-hover:scale-100 ">
-            <X />
-          </span>
-        </Gallary>
+        <Gallary
+          className="max-h-[30rem] min-h-80 "
+          pictures={selectedPictures}
+          onClick={handleDelete}
+        />
         <DialogFooter>
           <Button type="submit" onClick={handleUpload}>
             Upload
