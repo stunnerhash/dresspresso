@@ -6,6 +6,8 @@ import { Providers } from "./providers";
 import Header from "@/components/header/header";
 import UploadPicture from "@/components/upload-pictures/upload-pictures";
 import Head from "next/head";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -34,6 +36,7 @@ export default function RootLayout({
           {children}
           <UploadPicture />
         </Providers>
+        <SpeedInsights />
       </body>
     </html>
   );
