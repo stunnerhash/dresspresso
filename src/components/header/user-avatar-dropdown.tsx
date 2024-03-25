@@ -28,13 +28,15 @@ import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import { Button } from "../ui/button";
+import { signOut } from "next-auth/react";
+import LogoutButton from "./logout-button";
 
 export default async function UserAvatar() {
   const session = await getServerSession(options);
   if (!session) {
     return (
       <Link href="/api/auth/signin">
-        <Button variant="ghost"> Signin / Login </Button>
+        <Button variant="ghost"> Sign In </Button>
       </Link>
     );
   }
@@ -118,12 +120,12 @@ export default async function UserAvatar() {
           </DropdownMenuPortal>
         </DropdownMenuSub>
         <DropdownMenuSeparator />
-        <Link href="api/auth/signout?callbackUrl=/">
+        <LogoutButton>
           <DropdownMenuItem>
             <LogOut className="mr-2 h-4 w-4" />
             <span>Logout</span>
           </DropdownMenuItem>
-        </Link>
+        </LogoutButton>
       </DropdownMenuContent>
     </DropdownMenu>
   );

@@ -12,7 +12,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Dresspresso",
-
   description:
     "Your go-to solution for indecisive fashionistas. Dresspresso lets you randomly pick the perfect dress from your collection",
 };
@@ -31,11 +30,7 @@ export default function RootLayout({
         />
       </Head>
       <body className={cn([inter.className, "bg-background"])}>
-        <Providers>
-          <Header />
-          {children}
-          <UploadPicture />
-        </Providers>
+        <Providers>{children}</Providers>
         <SpeedInsights />
       </body>
     </html>

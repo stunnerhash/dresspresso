@@ -1,3 +1,4 @@
+import Header from "@/components/header/header";
 import { FileInput } from "@/components/ui/file-input";
 import UploadPicture from "@/components/upload-pictures/upload-pictures";
 import prisma from "@/db";
@@ -41,5 +42,10 @@ import { Plus, PlusCircle, PlusCircleIcon, Upload } from "lucide-react";
 export default async function Home() {
   // const user = await getUser();
   // console.log(user)
-  return <></>;
+  return (
+    <>
+      <Header />
+      <UploadPicture />
+    </>
+  );
 }

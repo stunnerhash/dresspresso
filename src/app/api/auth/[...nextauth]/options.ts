@@ -5,8 +5,6 @@ export const options: NextAuthOptions = {
   providers:[
     GoogleProvider({
       profile(profile){
-        console.log("profile google", profile);
-       
         return {
           ...profile,
           id: profile.sub,
@@ -18,7 +16,7 @@ export const options: NextAuthOptions = {
     }),
   ],
   pages:{
-    signIn:'auth/signin',
-    signOut:'auth/signout',
-  }
+    signIn:'/auth/signin',
+    signOut:'/auth/signout',
+  },
 }
